@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Quentin Pénault | Personal page</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Signika+Negative&display=swap" rel="stylesheet">
+</head>
+
+<body>
+	<div>
+		<span id="circle" class="scale-up-center">
+			<div id="content">
+				<span class="block">
+					<h1 id="title">Hi, I'm Quentin. Welcome !</h1>
+				</span>
+				<span class="block">
+					<img id="pp" src="pp.png" alt="Profile picture">
+				</span>
+				<span id="description" class="block">
+					<h2>
+						I am a web developer with a passion <br>
+						for creating personal projects and exploring Unity for game development.
+					</h2>
+				</span>
+				<span class="block">
+					<div id="github" class="button">
+						<a href="https://github.com/LeMecAvecLaCageAHamster">
+							<img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+								alt="GitHub icon">
+							GitHub
+						</a>
+					</div>
+					<div id="gitlab" class="button">
+						<a href="https://gitlab.com/LeMecAvecLaCageAHamster">
+							<img src="https://about.gitlab.com/images/press/press-kit-icon.svg" alt="GitLab icon">
+							GitLab
+						</a>
+					</div>
+					<div id="linkedin" class="button">
+						<a href="https://www.linkedin.com/in/quentin-p%C3%A9nault-a36451138">
+							<img src="https://content.linkedin.com/content/dam/me/business/en-us/amp/brand-site/v2/bg/LI-Bug.svg.original.svg"
+								alt="LinkedIn icon">
+							LinkedIn
+						</a>
+					</div>
+				</span>
+			</div>
+		</span>
+	</div>
+</body>
+
+</html>
+
+<script>
+	let circleElement = document.getElementById('circle');
+	let clicked = false;
+
+	if (!clicked) {
+		clicked = true;
+		circleElement.onclick = () => {
+			circleElement.classList.add('clicked');
+
+			setTimeout(() => {
+				let content = document.getElementById('content');
+				content.style.display = "inline";
+			}, 1000);
+
+			setTimeout(() => {
+				document.getElementById('github').style.display = "inline-block";
+			}, 1000);
+			setTimeout(() => {
+				document.getElementById('gitlab').style.display = "inline-block";
+			}, 1500);
+			setTimeout(() => {
+				document.getElementById('linkedin').style.display = "inline-block";
+			}, 2000);
+		};
+	}
+</script>
+
+<style>
+	body {
+		background-color: #dfdfdf;
+	}
+
+	#circle {
+		display: inline-block;
+		width: 5em;
+		height: 5em;
+		background-color: #3e3e3e;
+		border-radius: 100px;
+		position: absolute;
+		top: calc(50vh - 2.5em);
+		left: calc(50vw - 2.5em);
+		transition: ease-in-out .2s;
+	}
+
+	#circle:hover {
+		width: 7em;
+		height: 7em;
+		top: calc(50vh - 3.5em);
+		left: calc(50vw - 3.5em);
+	}
+
+	#content {
+		display: none;
+		color: white;
+		font-family: 'Signika Negative', sans-serif;
+		font-size: larger;
+		text-align: center !important;
+	}
+
+	#title {
+		animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both;
+	}
+
+	#pp {
+		border-radius: 100%;
+		border-color: white;
+		border-width: 3px;
+		border-style: solid;
+		width: 10em;
+		animation: flip-in-hor-bottom 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+		animation-delay: 1s;
+	}
+
+	#github img {
+		padding-top: 5px;
+	}
+
+	#github a {
+		color: black;
+	}
+
+	#gitlab a {
+		color: #e24329;
+	}
+
+	#linkedin a {
+		color: #0a66c2;
+	}
+
+	#description {
+		animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+		animation-delay: 1s;
+	}
+
+	.clicked {
+		width: 100% !important;
+		height: 100% !important;
+		border-radius: 0px !important;
+		top: 0 !important;
+		left: 0 !important;
+		transition: ease .3s !important;
+	}
+
+	.scale-up-center {
+		-webkit-animation: scale-up-center 2s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+		animation: scale-up-center 2s cubic-bezier(1.000, 0.000, 0.000, 1.000);
+	}
+
+	.block {
+		display: block;
+		margin: 5em;
+	}
+
+	.button {
+		display: none;
+		background: white;
+		width: 240px;
+		height: 70px;
+		margin: 3em;
+		border-radius: 60px;
+		overflow: hidden;
+		text-align: center;
+		vertical-align: middle;
+		animation: slide-in-blurred-top 0.6s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+		animation-delay: 1.5s;
+	}
+
+	.button * {
+		font-family: 'Signika Negative', sans-serif;
+		line-height: 70px;
+		text-align: center;
+		letter-spacing: .16em;
+		text-transform: uppercase;
+		text-decoration: none !important;
+		width: 1em;
+	}
+
+	@-webkit-keyframes scale-up-center {
+		0% {
+			-webkit-transform: scale(0.1);
+			transform: scale(0);
+		}
+
+		50% {
+			-webkit-transform: scale(0.1);
+			transform: scale(0.1);
+		}
+
+		100% {
+			-webkit-transform: scale(1);
+			transform: scale(1);
+		}
+	}
+
+	@-webkit-keyframes text-focus-in {
+		0% {
+			-webkit-filter: blur(12px);
+			filter: blur(12px);
+			opacity: 0;
+		}
+
+		100% {
+			-webkit-filter: blur(0px);
+			filter: blur(0px);
+			opacity: 1;
+		}
+	}
+
+	@keyframes text-focus-in {
+		0% {
+			-webkit-filter: blur(12px);
+			filter: blur(12px);
+			opacity: 0;
+		}
+
+		100% {
+			-webkit-filter: blur(0px);
+			filter: blur(0px);
+			opacity: 1;
+		}
+	}
+
+	@keyframes text-pop-up-top {
+		0% {
+			-webkit-transform: translateY(0);
+			transform: translateY(0);
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			text-shadow: none;
+		}
+
+		100% {
+			-webkit-transform: translateY(-50px);
+			transform: translateY(-50px);
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			text-shadow: 0 1px 0 #cccccc, 0 2px 0 #cccccc, 0 3px 0 #cccccc, 0 4px 0 #cccccc, 0 5px 0 #cccccc, 0 6px 0 #cccccc, 0 7px 0 #cccccc, 0 8px 0 #cccccc, 0 9px 0 #cccccc, 0 50px 30px rgba(0, 0, 0, 0.3);
+		}
+	}
+
+	@-webkit-keyframes flip-in-hor-bottom {
+		0% {
+			-webkit-transform: rotateX(80deg);
+			transform: rotateX(80deg);
+			opacity: 0;
+		}
+
+		100% {
+			-webkit-transform: rotateX(0);
+			transform: rotateX(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes flip-in-hor-bottom {
+		0% {
+			-webkit-transform: rotateX(80deg);
+			transform: rotateX(80deg);
+			opacity: 0;
+		}
+
+		100% {
+			-webkit-transform: rotateX(0);
+			transform: rotateX(0);
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes {
+		0% {
+			-webkit-transform: translateY(-45px);
+			transform: translateY(-45px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+			opacity: 1;
+		}
+
+		24% {
+			opacity: 1;
+		}
+
+		40% {
+			-webkit-transform: translateY(-24px);
+			transform: translateY(-24px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		65% {
+			-webkit-transform: translateY(-12px);
+			transform: translateY(-12px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		82% {
+			-webkit-transform: translateY(-6px);
+			transform: translateY(-6px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		93% {
+			-webkit-transform: translateY(-4px);
+			transform: translateY(-4px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		25%,
+		55%,
+		75%,
+		87% {
+			-webkit-transform: translateY(0px);
+			transform: translateY(0px);
+			-webkit-animation-timing-function: ease-out;
+			animation-timing-function: ease-out;
+		}
+
+		100% {
+			-webkit-transform: translateY(0px);
+			transform: translateY(0px);
+			-webkit-animation-timing-function: ease-out;
+			animation-timing-function: ease-out;
+			opacity: 1;
+		}
+	}
+
+	@keyframes {
+		0% {
+			-webkit-transform: translateY(-45px);
+			transform: translateY(-45px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+			opacity: 1;
+		}
+
+		24% {
+			opacity: 1;
+		}
+
+		40% {
+			-webkit-transform: translateY(-24px);
+			transform: translateY(-24px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		65% {
+			-webkit-transform: translateY(-12px);
+			transform: translateY(-12px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		82% {
+			-webkit-transform: translateY(-6px);
+			transform: translateY(-6px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		93% {
+			-webkit-transform: translateY(-4px);
+			transform: translateY(-4px);
+			-webkit-animation-timing-function: ease-in;
+			animation-timing-function: ease-in;
+		}
+
+		25%,
+		55%,
+		75%,
+		87% {
+			-webkit-transform: translateY(0px);
+			transform: translateY(0px);
+			-webkit-animation-timing-function: ease-out;
+			animation-timing-function: ease-out;
+		}
+
+		100% {
+			-webkit-transform: translateY(0px);
+			transform: translateY(0px);
+			-webkit-animation-timing-function: ease-out;
+			animation-timing-function: ease-out;
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes slide-in-blurred-top {
+		0% {
+			-webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+			transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+			-webkit-transform-origin: 50% 0%;
+			transform-origin: 50% 0%;
+			-webkit-filter: blur(40px);
+			filter: blur(40px);
+			opacity: 0;
+		}
+
+		100% {
+			-webkit-transform: translateY(0) scaleY(1) scaleX(1);
+			transform: translateY(0) scaleY(1) scaleX(1);
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			-webkit-filter: blur(0);
+			filter: blur(0);
+			opacity: 1;
+		}
+	}
+
+	@keyframes slide-in-blurred-top {
+		0% {
+			-webkit-transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+			transform: translateY(-1000px) scaleY(2.5) scaleX(0.2);
+			-webkit-transform-origin: 50% 0%;
+			transform-origin: 50% 0%;
+			-webkit-filter: blur(40px);
+			filter: blur(40px);
+			opacity: 0;
+		}
+
+		100% {
+			-webkit-transform: translateY(0) scaleY(1) scaleX(1);
+			transform: translateY(0) scaleY(1) scaleX(1);
+			-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+			-webkit-filter: blur(0);
+			filter: blur(0);
+			opacity: 1;
+		}
+	}
+
+	@-webkit-keyframes tracking-in-expand {
+		0% {
+			letter-spacing: -0.5em;
+			opacity: 0;
+		}
+
+		40% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+
+	@keyframes tracking-in-expand {
+		0% {
+			letter-spacing: -0.5em;
+			opacity: 0;
+		}
+
+		40% {
+			opacity: 0.6;
+		}
+
+		100% {
+			opacity: 1;
+		}
+	}
+</style>
